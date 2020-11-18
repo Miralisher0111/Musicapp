@@ -1,0 +1,23 @@
+extends layout
+block content
+  //- h1= title
+  //- p Welcome to #{title}
+  h1.text-center Musiqa qo'shish
+  .row
+      .col-6.offset-3
+        form(action='/music' method="POST" enctype='multipart/form-data')
+          div.form-group
+            input.d-block.bg-warning.form-control.custom-file-input(type='file' name="file")
+            label.bg-warning.custom-file-label musiqa yuklash uchun
+          div.form-group
+            label Nomi:
+            input.d-block.form-control(type='text' name="name")
+            label Ijrochisi:
+            input.d-block.form-control(type='text' name="singer")
+            label Izox qoldirish:
+            input.d-block.form-control(type='text' name="comment")
+            label baxo berish:
+            input.d-block.form-control(type='number' name="score")
+          
+          button.btn.btn-success.d-block.mt-3.float-right(type='submit') Submit
+

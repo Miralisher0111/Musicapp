@@ -1,0 +1,30 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='/') music.uz
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav
+      if(isHome)
+        li.nav-item.active
+          a.nav-link(href='/')
+            | Bosh sahifa 
+            span.sr-only (current)   
+      
+      else
+        li.nav-item
+          a.nav-link(href='/')
+            | Bosh sahifa
+            span.sr-only (current)
+    
+      if(isAbout)
+        li.nav-item.active
+          a.nav-link(href='/music/') Musiqa qo'shish
+      
+      else
+        li.nav-item
+          a.nav-link(href='/music/') Musiqa qo'shish
+      
+      
+      
+      //- li.nav-item
+      //-   a.nav-link(href='#') Pricing

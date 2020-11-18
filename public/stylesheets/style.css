@@ -1,0 +1,46 @@
+body {
+  
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../images/aboutpage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff!important;
+}
+.navbar{
+  background-color: transparent!important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  
+}
+.navbar-nav{
+  position: relative;
+  /* left: 10rem; */
+}
+.navbar-brand{
+  color: goldenrod!important;
+  font-size: 1.8rem;
+  font-style: oblique;
+}
+.nav-item{
+  margin-right: 5rem;
+}
+
+a {
+  color: #00B7FF;
+}
+.active{
+  background-color: red;
+}
+.networks{
+  font-size: 3rem;
+  color:yellow;
+}
+footer{
+  height: 10rem;
+}
+
+.networks:hover{
+ font-size: 5rem;
+ transition: all,ease,1s
+}

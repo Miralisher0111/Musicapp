@@ -1,0 +1,35 @@
+extends layout
+block content
+   .container
+    .row
+        .col-6.offset-3
+            .h2.text-center.text-danger=title
+            form.needs-validation(action='' novalidate='')
+                .form-group
+                    label(for='uname') Username:
+                    input#uname.form-control(type='text' placeholder='Enter username' name='uname' required='')
+                    .valid-feedback Valid.
+                    .invalid-feedback.text-danger Iltimos ushbu maydonchani bo'sh qoldirmang.
+                .form-group
+                    label(for='name') Name:
+                    input#name.form-control(type='Text' placeholder='Enter name' name='name' required='')
+                    .valid-feedback Valid.
+                    .invalid-feedback Iltimos ushbu maydonchani bo'sh qoldirmang.
+                .form-group
+                    label(for='email') Elektron-pochta:
+                    input#email.form-control(type='Email' placeholder='Enter Email' name='email' required='')
+                    .valid-feedback Valid.
+                    .invalid-feedback Iltimos ushbu maydonchani bo'sh qoldirmang.
+                .form-group
+                    label(for='pwd') Parolingizni kiriting:
+                    input#pwd.form-control(type='password' placeholder='Parolingizni kiriting' name='pswd' required='')
+                    .valid-feedback Valid.
+                    .invalid-feedback Iltimos ushbu maydonchani bo'sh qoldirmang.
+                .form-group
+                    label(for='pwd') Parolingizni tasdiqlang:
+                    input#pwd2.form-control(type='password' placeholder='Parolni Tasdiqlash' name='pswd2' required='')
+                    .valid-feedback Valid.
+                    .invalid-feedback Iltimos ushbu maydonchani bo'sh qoldirmang.
+                
+                button.btn.btn-primary(type='submit') Submit
+                

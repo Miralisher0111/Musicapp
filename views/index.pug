@@ -1,0 +1,32 @@
+extends layout
+block content
+  //- h1= title
+  //- p Welcome to #{title}
+  .container
+    .row
+      .col
+        
+
+            table.table.table-transparent
+              tr.text-warning
+                th Ijrochi:
+                th Qo'shiq nomi:
+                th komentariya:
+                th ball:
+              each music,i in musics
+                tr.text-light
+                    
+                      td #{music.singer}
+                      td
+                        a(href="/music/"+music._id) #{music.name}
+                      td #{music.comment}
+                      td #{music.score}
+
+
+
+
+
+
+
+          
+

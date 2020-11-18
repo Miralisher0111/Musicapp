@@ -1,0 +1,26 @@
+extends layout
+block content
+  .container
+    .row
+      .col
+        h1.text-center= title
+        h2.ml-2 Qo'shiq nomi: #{data.name}
+        hr
+        h3.ml-2 Qo'shiq nomi: #{data.singer}
+        hr
+        h3.ml-2 komentariya: #{data.comment}
+        hr
+        h3.ml-2 ball: #{data.score}
+        audio(src=`/upload/${data.file}` controls="")
+        .col-6
+          a.btn.btn-warning.ml-3.mt-4(href="edit/"+data._id) O'zgartirish
+          a.btn.btn-danger.ml-4.mt-4(href="delete/"+data._id) O'chirish
+  
+  
+      
+    
+
+
+
+
+            

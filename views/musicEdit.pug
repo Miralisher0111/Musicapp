@@ -1,0 +1,18 @@
+extends layout
+block content
+  h1= title
+  p Welcome to #{title}
+  h1.text-center Musiqani o'zgartirish
+  .row
+      .col-6.offset-3
+        form( method="POST")
+          input.d-block.form-control.mb-2(type='text' name="name" value=music.name)
+          label Ijrochisini o'zgartirish:
+          input.d-block.form-control.mb-2(type='text' name="singer" value=music.singer)
+          label Izoxni o'zgartirish :
+          input.d-block.form-control.mb-2(type='text' name="comment"  value=music.comment)
+          label qayta baxolash:
+          input.d-block.form-control.mb-2(type='number' name="score"  value=music.score)
+          
+          button.btn.btn-success.d-block.mt-3.float-right(type='submit') Submit
+
