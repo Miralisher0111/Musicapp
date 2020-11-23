@@ -1,0 +1,19 @@
+extends layout
+block content
+    .container
+        .row
+            .col-md-6.offset-3
+                h1.text-center=title
+                form.needs-validation(action='/login'  method="POST" novalidate='')
+                    .form-group
+                        label(for='username') Login:
+                        input#username.form-control(type='text' placeholder='logini kiriting' name='username' required='')
+                        .valid-feedback hozircha yaroqli...
+                        .invalid-feedback Iltimos Loginni kiriting!
+                    .form-group
+                        label(for='pwd') Parol:
+                        input#pwd.form-control(type='password' placeholder='Parol kiriting' name='password' required='')
+                        .valid-feedback hozircha yaroqli
+                        .invalid-feedback Iltimos parol kiriting!
+                    
+                    button.btn.btn-success.float-right(type='submit') Jo'natish

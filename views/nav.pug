@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarNav.collapse.navbar-collapse
-    ul.navbar-nav
+    ul.navbar-nav.mr-auto
       if(isHome)
         li.nav-item.active
           a.nav-link(href='/')
@@ -25,6 +25,23 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           a.nav-link(href='/music/') Musiqa qo'shish
       
       
+    ul.navbar-nav.mr-right
+      if(isRegister)
+        li.nav-item.active
+          a.nav-link(href='/register')
+            | ro'yxatdan o'tish 
+            span.sr-only (current)   
       
-      //- li.nav-item
-      //-   a.nav-link(href='#') Pricing
+      else
+        li.nav-item
+          a.nav-link(href='/register')
+            | ro'yxatdan o'tish
+            span.sr-only (current)
+    
+      if(isLogin)
+        li.nav-item.active
+          a.nav-link(href='/login') kirish
+      
+      else
+        li.nav-item
+          a.nav-link(href='/login') kirish 

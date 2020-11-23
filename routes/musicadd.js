@@ -25,7 +25,7 @@ res.render('musicadd',{title: 'Musiqa qo\'sish saxifasi',isAbout:true})
 router.post('/',upload.single('file'),(req,res,next)=>{
     req.checkBody('name',"Iltimos musiqa nomini kiriting").notEmpty();
     req.checkBody('singer',"Iltimos musiqa ijrochisini kiriting").notEmpty();
-    req.checkBody('comment',"Iltimos musiqaga izoh yzing").notEmpty();
+    req.checkBody('comment',"Iltimos musiqaga izoh yozing").notEmpty();
     req.checkBody('score',"Iltimos musiqaga baxo bering").notEmpty();
     const errors=req.validationErrors()
 
@@ -44,7 +44,7 @@ router.post('/',upload.single('file'),(req,res,next)=>{
         const music=new Music(data)
         const promise=music.save();
         promise.then( (data)=>{
-            req.flash("warning",`Musiqa qo'shildi`)
+            req.flash("success",`Musiqa qo'shildi`)
            res.redirect('/')
         })
         .catch((err)=>{

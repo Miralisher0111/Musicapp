@@ -13,6 +13,8 @@ const musicaddRouter = require('./routes/musicadd');
 const musicRouter=require('./routes/music')
 const musicEditRouter=require('./routes/musicEdit')
 const musicDeleteRouter=require('./routes/musicDelet')
+const registerRouter=require('./routes/register')
+const loginRouter=require('./routes/login')
 
 
 
@@ -58,9 +60,17 @@ app.use(validator({
 }));
 
 
+
+
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -71,6 +81,8 @@ app.use('.register',express.static(path.join(__dirname, 'public')));
 app.use('/upload',express.static(path.join(__dirname,'upload')))
 
 app.use('/', indexRouter);
+app.use('/',registerRouter)
+app.use('/',loginRouter)
 
 app.use('/music', musicaddRouter);
 app.use('/music',musicRouter)

@@ -1,0 +1,40 @@
+extends layout 
+block content
+    .container
+        .row
+            .col-6.offset-3
+                h1.text-center=title
+                form.needs-validation.mt-4.mb-4(action='/register' method="post" novalidate='')
+                    .form-group
+                        label(for='surname') Familya:
+                        input#surname.form-control(type='text' placeholder='familyangizni kiriting' name='surname' required='')
+                        .valid-feedback to'ldirildi!
+                        .invalid-feedback Iltimos familyangizni kiriting!
+                    .form-group
+                        label(for='name') Ism:
+                        input#name.form-control(type='text' placeholder='Ismingizni kiriting' name='name' required='')
+                        .valid-feedback to'ldirildi!
+                        .invalid-feedback Iltimos ismingizni kiriting!
+                    .form-group
+                        label(for='email') Elektron poshta:
+                        input#email.form-control(type='Email' placeholder='Elektron pochtangizni kiriting' name='email' required='')
+                        .valid-feedback to'ldirildi!
+                        .invalid-feedback Iltimos Elektron poshtchangizni kiriting!
+                    .form-group
+                        label(for='username') Login:
+                        input#username.form-control(type='text' placeholder='tizimdan foydalanish uchun login kiriting va uni eslab qoling' name='username' required='')
+                        .valid-feedback to'ldirildi!
+                        .invalid-feedback Iltimos login kiriting kiriting!
+                    .form-group
+                        label(for='pwd') Maxfiy parol kiriting:
+                        input#pwd.form-control(type='password' placeholder='Mahfiy parol kiriting va uni eslab qoling' name='password' required='')
+                        .valid-feedback to'ldirildi!
+                        .invalid-feedback Iltimos parol kiriting
+                    .form-group
+                        label(for='pwd2') Parolni tasdiqlang:
+                        input#pwd2.form-control(type='password' placeholder='Parolni qaytadan tering' name='password2' required='')
+                        .valid-feedback toldirildi !
+                        .invalid-feedback Iltimos parol qaytadan kiriting.
+                    
+                    
+                    button.btn.btn-success.float-right.mb-md-4(type='submit') jo'natish

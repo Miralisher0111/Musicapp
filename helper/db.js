@@ -1,7 +1,8 @@
 const mongoose=require('mongoose')
+const dburl=require('../cf/db')
 
 module.exports=()=>{
-mongoose.connect('mongodb+srv://apiMovies:123qwe123@movies.raylm.mongodb.net/test2',{
+mongoose.connect(dburl.db,{
     useCreateIndex:true,
     useNewUrlParser:true,
     useUnifiedTopology:true
