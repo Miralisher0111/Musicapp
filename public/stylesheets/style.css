@@ -32,15 +32,16 @@ a {
 .active{
   background-color: red;
 }
-.networks{
-  font-size: 3rem;
-  color:yellow;
-}
-footer{
-  height: 10rem;
-}
 
-.networks:hover{
- font-size: 5rem;
- transition: all,ease,1s
+.regstry{
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  margin: 1rem;
+  padding: 0px;
+  
+}
+.regstry a{
+
+  margin: 0;
+
 }

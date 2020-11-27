@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Music=require("../model/Music")
-const multer=require('multer')
+const multer=require('multer');
+const User = require('../model/User');
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -37,6 +38,7 @@ router.post('/',upload.single('file'),(req,res,next)=>{
         const data={
             name:req.body.name,
             singer:req.body.singer,
+            adduser:req.user._id,
             comment:req.body.comment,
             score:req.body.score,
             file:req.file.filename

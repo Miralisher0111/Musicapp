@@ -7,6 +7,7 @@ const flash=require('connect-flash')
 const validator=require('express-validator')
 const session=require('express-session')
 const messages=require('express-messages')
+const passport=require('passport')
 
 const indexRouter = require('./routes/index');
 const musicaddRouter = require('./routes/musicadd');
@@ -15,7 +16,7 @@ const musicEditRouter=require('./routes/musicEdit')
 const musicDeleteRouter=require('./routes/musicDelet')
 const registerRouter=require('./routes/register')
 const loginRouter=require('./routes/login')
-
+const logoutRouter=require('./routes/logout')
 
 
 
@@ -60,16 +61,22 @@ app.use(validator({
 }));
 
 
-
-
-
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+
+// passportjs ni ulaymiz
+
+require('./cf/passport')(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get("*",(req,res,next)=>{
+  res.locals.user=req.user ||null;
+  next();
+});
 
 
 app.use(logger('dev'));
@@ -83,6 +90,7 @@ app.use('/upload',express.static(path.join(__dirname,'upload')))
 app.use('/', indexRouter);
 app.use('/',registerRouter)
 app.use('/',loginRouter)
+app.use('/',logoutRouter)
 
 app.use('/music', musicaddRouter);
 app.use('/music',musicRouter)

@@ -12,6 +12,11 @@ const music=new Schema({
         required:true,
         default:'somebody' 
     },
+    adduser:{
+        type:Schema.Types.ObjectId,
+        required:true,
+         
+    },
     comment:{
         type:String,
         required:true,

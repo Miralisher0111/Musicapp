@@ -15,36 +15,69 @@ router.post('/register',(req,res,next)=>{
     req.checkBody('email',"Surname maydonchasi to'ldirilmagan").notEmpty();;
     req.checkBody('username',"Surname maydonchasi to'ldirilmagan").notEmpty();
     req.checkBody('password',"Surname maydonchasi to'ldirilmagan").notEmpty();
-    req.checkBody('password2',"Parolnini qaytadan tasdiqlang").equals(password);
+    req.checkBody('password2',"Parolnini qaytadan tasdiqlang").equals(req.body.password);
 
     const errors=req.validationErrors()
     if(errors){
         res.render('register',{errors:errors})
     }
-    bcrypt.hash(password,8,(err,hash)=>{
-        if(err){
-            console.log(err);
-        }
-        const newuser=new User({
-            surname:surname,
-            name:name,
-            email:email,
-            username:username,
-            password:hash
-        })
-        const promise=newuser.save()
-        promise.then(()=>{
-            req.flash('success','ro\'yxatdan o\'tdingiz')
-            res.redirect('/login')
-        })
-        .catch((err)=>{
-           console.log(err);
+    else{
+        bcrypt.hash(password,8,(err,hash)=>{
+            if(err){
+                console.log(err);
+            }
+            
+            User.findOne({email:email},(err,user)=>{
+                if(err){
+                    console.log(err);
+                }
+                if(user){
+                   req.flash('danger',` ${email} bazada mavjud boshqa manzil tanlang`) 
+                   res.redirect('/register')
+                }
+                else{
+                    User.findOne({username:username},(err,user)=>{
+                        if(err){
+                            console.log(err);
+                        }
+                        if(user){
+                            req.flash('danger',`${username} nomli foydalanuvchi bazada mavjud`)
+                            res.redirect('/register')
+                        }
+                        else{
+                            const newuser=new User({
+                                surname:surname,
+                                name:name,
+                                email:email,
+                                username:username,
+                                password:hash
+                            })
+                            newuser.save()
+                            .then(()=>{
+                                req.flash('success',"ro'yxatdan muofaqqiyatli o'tdingiz")
+                                res.redirect('/login');
+                            })
+                            .catch((err)=>{
+                                console.log(err);
+                            })
+                        }
+    
+                    })
+                }
                 
+                
+            })
         })
-    })
+    }
+   
 
         
     })
   
 
 module.exports=router
+
+
+
+
+

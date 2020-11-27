@@ -15,7 +15,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           a.nav-link(href='/')
             | Bosh sahifa
             span.sr-only (current)
-    
+      
       if(isAbout)
         li.nav-item.active
           a.nav-link(href='/music/') Musiqa qo'shish
@@ -25,23 +25,33 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           a.nav-link(href='/music/') Musiqa qo'shish
       
       
-    ul.navbar-nav.mr-right
-      if(isRegister)
-        li.nav-item.active
-          a.nav-link(href='/register')
-            | ro'yxatdan o'tish 
-            span.sr-only (current)   
+    ul.navbar-nav
+      if !user
+        if(isRegister)
+          li.nav-item.active.regstry
+            a.nav-link.text-light(href='/register')
+              | ro'yxatdan o'tish 
+              span.sr-only (current)   
+        
+        else
+          li.nav-item.regstry
+            a.nav-link.text-light(href='/register')
+              | ro'yxatdan o'tish
+              span.sr-only (current)
       
+        if(isLogin)
+          li.nav-item.active.regstry
+            a.nav-link.text-light(href='/login') kirish
+        
+        else
+          li.nav-item.regstry
+            a.nav-link.text-light(href='/login') kirish 
       else
-        li.nav-item
-          a.nav-link(href='/register')
-            | ro'yxatdan o'tish
-            span.sr-only (current)
-    
-      if(isLogin)
-        li.nav-item.active
-          a.nav-link(href='/login') kirish
       
-      else
-        li.nav-item
-          a.nav-link(href='/login') kirish 
+          if(isLogout)
+            li.nav-item.active.regstry
+              a.nav-link.text-light(href='/logout') chiqish
+          
+          else
+            li.nav-item.regstry
+              a.nav-link.text-light(href='/logout') chiqish 
