@@ -5,16 +5,25 @@ const fs=require('fs')
 const path=require('path')
 
  router.get('/delete/:id',(req,res,next)=>{  
-        
-    
-    Music.findByIdAndDelete(req.params.id,(err)=>{
-                 if(err){
-                    console.log(err);
-                }
-                req.flash(`success`,`Musiqa o'chirildi`)
-                res.redirect('/');
-            })
-                    
+        Music.findById(req.params.id,(err,music)=>{
+            if(err){
+                console.log(err);
+            }
+            if(music){
+                fs.unlink(path.join('upload',music.file),(err)=>{
+                    if(err){
+                        console.log(err);
+                    }
+                    Music.findByIdAndDelete(req.params.id,(err)=>{
+                        if(err){
+                            console.log(err);
+                        }
+                        req.flash('success',"musiqa o'chirildi");
+                        res.redirect('/')
+                    })
+                })
+            }
+        })  
 
 })
 
