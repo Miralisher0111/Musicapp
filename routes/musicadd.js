@@ -3,6 +3,7 @@ const router = express.Router();
 const Music=require("../model/Music")
 const multer=require('multer');
 const User = require('../model/User');
+const  eA=require('../middleware/middleware');
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -15,7 +16,7 @@ const storage=multer.diskStorage({
  const upload=multer({storage:storage})
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/',eA, function(req, res, next) {
 res.render('musicadd',{title: 'Musiqa qo\'sish saxifasi',isAbout:true})
 
 
