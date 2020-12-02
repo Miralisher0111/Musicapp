@@ -7,9 +7,9 @@ block content
       .col-6.offset-3
         form(action='/music' method="POST" enctype='multipart/form-data')
           div.form-group
-            input.d-block.bg-warning.form-control.custom-file-input(type='file' name="file")
-            label.bg-warning.custom-file-label musiqa yuklash uchun
-          div.form-group
+            label musiqa:
+            input.d-block.form-control.bg-dark.text-light.overflow-hidden(type="file" name="file")
+            div.form-group
             label Nomi:
             input.d-block.form-control(type='text' name="name")
             label Ijrochisi:
